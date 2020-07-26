@@ -1,22 +1,16 @@
 package pl.sda.javalon4.netflix;
 
-import pl.sda.javalon4.netflix.domain.Movie;
-import pl.sda.javalon4.netflix.domain.MovieCatalogue;
-import pl.sda.javalon4.netflix.domain.MovieGenre;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Supplier;
+import pl.sda.javalon4.netflix.service.MovieCatalogue;
 
 public class NetlixApp {
 
     public static void main(String[] args) {
-        MovieCatalogue movieCatalogue = new MovieCatalogue(initialMovieListSupplier.get());
+        MovieCatalogue movieCatalogue = new MovieCatalogue();
         movieCatalogue.show();
     }
 
-    static Supplier<List<Movie>> initialMovieListSupplier = () -> {
+    //pozostalosc po zad1
+    /*static Supplier<List<Movie>> initialMovieListSupplier = () -> {
         List<Movie> movies = new ArrayList<>();
 
         Movie m1 = new Movie("Ogniem i Mieczem",
@@ -80,6 +74,6 @@ public class NetlixApp {
         movies.add(mAlicja);
 
         return movies;
-    };
+    };*/
 
 }
