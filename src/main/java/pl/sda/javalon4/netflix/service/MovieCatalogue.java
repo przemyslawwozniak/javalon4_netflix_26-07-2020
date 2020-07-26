@@ -50,14 +50,14 @@ public class MovieCatalogue {
                 movies.add(fromTextLine(line));
             }
 
-            System.out.println("Movies read from DB finished.");
+            System.out.println("MovieCatalogue: Movies read from DB finished.");
         }
         catch(IOException ex) {
-            System.err.println("Cannot open db.csv file: " + ex);
+            System.err.println("MovieCatalogue: Cannot open db.csv file: " + ex);
         }
     }
 
-    private Movie fromTextLine(String line) {
+    public static Movie fromTextLine(String line) {
         String[] splittedByComma = line.split(";");
 
         String mTitle = splittedByComma[0];
@@ -74,13 +74,18 @@ public class MovieCatalogue {
     }
 
     //1999,2,8
-    private LocalDate fromText(String line) {
+    private static LocalDate fromText(String line) {
         String[] splittedByComma = line.split(",");
         int[] convertedToInt = new int[3];
         for(int i = 0; i < splittedByComma.length; i++) {
             convertedToInt[i] = Integer.parseInt(splittedByComma[i]);
         }
         return LocalDate.of(convertedToInt[0], convertedToInt[1], convertedToInt[2]);
+    }
+
+    public void insertMovie(Movie movie) {
+        movies.add(movie);
+        System.out.println("MovieCatalogue: Dodano nowy film to bazy danych: " + movie.getTitle());
     }
 
     //return a copy of this list so nobody can modify it throughout its reference

@@ -1,12 +1,14 @@
 package pl.sda.javalon4.netflix;
 
+import pl.sda.javalon4.netflix.app.ConsoleApp;
 import pl.sda.javalon4.netflix.service.MovieCatalogue;
 
 public class NetlixApp {
 
     public static void main(String[] args) {
         MovieCatalogue movieCatalogue = new MovieCatalogue();
-        movieCatalogue.show();
+        ConsoleApp consoleApp = new ConsoleApp(movieCatalogue);
+        consoleApp.menu();
     }
 
     //pozostalosc po zad1
