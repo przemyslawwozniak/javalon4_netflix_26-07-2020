@@ -14,5 +14,30 @@ public class Movie {
         this.genre = genre;
         this.releaseDate = releaseDate;
     }
-    
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public MovieGenre getGenre() {
+        return genre;
+    }
+
+    public LocalDate getReleaseDate() {
+        return releaseDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", desc='" + desc + '\'' +
+                ", genre=" + genre +
+                ", releaseDate=" + releaseDate +
+                '}';
+    }
 }
