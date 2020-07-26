@@ -88,6 +88,34 @@ public class MovieCatalogue {
         System.out.println("MovieCatalogue: Dodano nowy film to bazy danych: " + movie.getTitle());
     }
 
+    //Movie -> text
+    //List<text>
+    //save to file
+    public void persistCatalogue() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Movie m : movies) {
+            stringBuilder.append(fromMovie(m));
+            stringBuilder.append("\n");
+        }
+        String dbContent = stringBuilder.toString();
+        //zapisac do pliku -> patrz StackOverflow
+    }
+
+    //Movie -> text line
+    public static String fromMovie(Movie movie) {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append(movie.getTitle());
+        stringBuilder.append(";");
+        stringBuilder.append(movie.getGenre().name());
+        stringBuilder.append(";");
+        stringBuilder.append(movie.getReleaseDate());
+        stringBuilder.append(";");
+        stringBuilder.append(movie.getDesc());
+
+        return stringBuilder.toString();
+    }
+
     //return a copy of this list so nobody can modify it throughout its reference
     public List<Movie> getMovies() {
         return new ArrayList<>(movies);

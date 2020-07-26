@@ -27,6 +27,8 @@ public class ConsoleApp {
                 case 2:
                     insertMovie();
                     break;
+                default:
+                    exit();
             }
             System.out.println("Co chcesz teraz zrobić?");
             System.out.println("1: Wyświetl katalog filmów.\n2: Dodaj nowy film do zbioru.\n0: Exit\n");
@@ -58,6 +60,12 @@ public class ConsoleApp {
         movieCatalogue.insertMovie(MovieCatalogue.fromTextLine(movieAsTextLine));
 
         System.out.println("Kreator dodawania nowego filmu zakończył pracę.");
+    }
+
+    //handle persisting of in-memory catalogue to the file
+    private void exit() {
+        movieCatalogue.persistCatalogue();
+        System.out.println("Zakończono program, exportując katalog filmów do pliku.");
     }
 
     private MovieGenre chooseMovieGenre() {
